@@ -1,0 +1,35 @@
+@use "./config" as *;
+
+@use 'sass:color';
+
+
+.home {
+
+  .random-list {
+  
+    .btn {
+      align-self: flex-start;
+      padding: 0.3rem 0.85rem;
+      margin: 0.65rem 0;
+      background: #009F99;
+      color: #000;
+
+      &:hover,
+      &:focus {
+        background: color.scale(#009F99, $lightness: -10%);
+      }
+    }
+  }
+
+  h1 {
+    margin: 2rem 0;
+    font-size: 2rem;
+    // text-align: center;
+  }
+
+  h2 {
+    text-align: left;
+    border-bottom: 1px solid #000;
+    margin-bottom: 0.65rem;
+  }
+}

@@ -1,0 +1,112 @@
+/** Base colors */
+$clr-dark-a0: #000000;
+$clr-light-a0: rgba(255, 255, 255, 0.87);
+$clr-light-a10: rgba(255, 255, 255, 0.75);
+$clr-light-a20: rgba(255, 255, 255, 0.5);
+$clr-light-a30: rgba(255, 255, 255, 0.25);
+$clr-light-a40: rgba(255, 255, 255, 0.1);
+$clr-light-a50: rgba(255, 255, 255, 0.05);
+$clr-caution: #F4C430;
+$clr-warning: #D70040;
+
+/** Dark theme primary colors */
+$clr-primary-a0: #4b0082;
+$clr-primary-a10: #612690;
+$clr-primary-a20: #76419e;
+$clr-primary-a30: #8a5bac;
+$clr-primary-a40: #9e75ba;
+$clr-primary-a50: #b190c8;
+
+/** Dark theme surface colors */
+$clr-surface-a0: #121212;
+$clr-surface-a10: #282828;
+$clr-surface-a20: #3f3f3f;
+$clr-surface-a30: #575757;
+$clr-surface-a40: #717171;
+$clr-surface-a50: #8b8b8b;
+
+/** Dark theme tonal surface colors */
+$clr-surface-tonal-a0: #19131d;
+$clr-surface-tonal-a10: #2e2832;
+$clr-surface-tonal-a20: #443f48;
+$clr-surface-tonal-a30: #5c5860;
+$clr-surface-tonal-a40: #757178;
+$clr-surface-tonal-a50: #8f8c92;
+
+/** Dark theme shadow colors */
+$clr-shadow-a0: rgba(75, 0, 130, 0.2);
+$clr-shadow-a10: rgba(97, 38, 144, 0.2)97 38 144;
+$clr-shadow-a20: rgba(118, 65, 158, 0.2);
+$clr-shadow-a30: rgba(138, 91, 172, 0.2);
+$clr-shadow-a40: rgba(158, 117, 186, 0.2);
+$clr-shadow-a50: rgba(177, 144, 200, 0.2);
+
+/**
+*   Browser resets
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+*   General/Utility
+*/
+
+html {
+  height: 100%
+}
+
+html, body {
+  margin: 0;
+  font-size: 24px;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: $clr-light-a0;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px $clr-surface-a0;
+}

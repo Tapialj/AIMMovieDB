@@ -1,0 +1,29 @@
+@use "./config" as *;
+
+
+.nav {
+  padding: 1.25rem 0;
+  font-size: 0.7rem;
+  
+  h1 {
+    text-align: left;
+    color: #42b983;
+  }
+
+  nav {
+    font-weight: bold;
+    padding: 0 2.5rem;
+  }
+
+  a {
+    color: #2c3e50;
+    
+    &.active {
+      color: #42b983;
+    }
+  }
+
+  &.flex {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".", //deprecated, figure out if safe to just remove?
+    "paths": {
+      "/*": ["./src/*"],
+    }
+  }
+}
