@@ -9,15 +9,11 @@ const ProtectedRoute = ({ allowedRoles }) => {
   const location = useLocation();
   
   return (
-    auth?.user ?
-      <Outlet /> :
-      <Navigate to="/login" state={{ from: location }} replace />
-
-  // auth?.roles?.find(role => allowedRoles.includes(role))
-  // ? <Outlet />
-  // : auth?.user
-  // ? <Navigate to="/unauthorized" state={{ from: location }} replace />
-  // : <Navigate to="/login" state={{ from: location }} replace />
+    auth?.roles?.find((role) => allowedRoles.includes(role))
+      ? <Outlet />
+      : auth?.user
+        ? <Navigate to="/unauthorized" state={{ from: location }} replace />
+        : <Navigate to="/login" state={{ from: location }} replace />
   );
 };
 
