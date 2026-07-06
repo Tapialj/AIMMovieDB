@@ -1,34 +1,61 @@
 @use "./config" as *;
 
 
-@media (min-width: 35em) {
-
-  /* Header */
-
-
-
-  /* Pages */
+@media (min-width: 56.25rem) {
 
 
 }
 
-@media (min-width: 35em) and (max-width: 44.999em) {
+@media (min-width: 42rem) and (max-width: 56.25rem){
 
 }
 
-@media (min-width: 45em) {
+@media (min-width: 37.5rem) and (max-width: 42rem) {
+
+}
+
+@media (max-width: 37.49rem) {
+
+  .nav {
+
+    nav {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        display: none;
+      }
+      
+      a {
+
+        &::after {
+          content: "";
+          display: block;
+          position: relative;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: #00A38B;
+        }
+      }
+    }
+  }
   
-  /* Utilities */
-  
-
-  /* Header */
-
-
-  /* Pages */
-
-
+  .random{
+    
+    &.grid {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
-@media (max-width: 35em) {
+@media (max-width: 42rem ) {
 
+  .nav {
+
+    h1 {
+      width: 5rem;
+    }
+  }
 }
