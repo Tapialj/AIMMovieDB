@@ -22,7 +22,7 @@ const ActorHero = ({ actor, onEditActorClick }) => {
       <div className="name flex row">
         <h1>{actor.firstName} {actor.lastName}</h1>
         {
-          auth?.user?.role?.includes("USER") &&
+          (auth?.roles?.includes("USER") || auth?.roles?.includes("ADMIN")) &&
             <Button title="Edit" onClick={onEditActorClick} />
         }
       </div>

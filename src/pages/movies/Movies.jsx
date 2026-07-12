@@ -19,7 +19,7 @@ const Movies = () => {
       <section className="flex row">
         <h1>Movies</h1>
         {
-          auth?.user?.role?.includes("USER") &&
+          (auth?.roles?.includes("USER") || auth?.roles?.includes("ADMIN")) &&
             <Button title="Add Movie" onClick={onAddMovieClick} />
         }
       </section>
