@@ -1,10 +1,10 @@
 
 
-const Button = ({ title, onClick }) => {
+const Button = ({ title, disabled, onClick }) => {
   
   return (
     <>
-      <button className="btn" onClick={onClick}>
+      <button disabled={disabled} className="btn" onClick={onClick}>
         {title}
       </button>
     </>
