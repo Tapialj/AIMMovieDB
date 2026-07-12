@@ -57,9 +57,10 @@ export default defineConfig([
       "react/prop-types": "off",
       "@stylistic/array-bracket-newline": [
         "error",
-        {
-          minItems: 4,
-        },
+        "consistent"
+        // {
+        //   minItems: 4,
+        // },
       ],
       "@stylistic/array-element-newline": [
         "error",
@@ -94,7 +95,7 @@ export default defineConfig([
       ],
       "@stylistic/function-paren-newline": [
         "error",
-        "multiline",
+        "consistent",
       ],
       "@stylistic/function-call-spacing": [
         "error",
