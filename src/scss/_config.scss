@@ -9,29 +9,90 @@ $clr-light-a50: rgba(255, 255, 255, 0.05);
 $clr-caution: #F4C430;
 $clr-warning: #D70040;
 
-/** Dark theme primary colors */
-$clr-primary-a0: #4b0082;
-$clr-primary-a10: #612690;
-$clr-primary-a20: #76419e;
-$clr-primary-a30: #8a5bac;
-$clr-primary-a40: #9e75ba;
-$clr-primary-a50: #b190c8;
+/** Dark Theme primary colors */
+$clr-primary-a0: #42b983;
+$clr-primary-a10: #5bc08f;
+$clr-primary-a20: #71c79b;
+$clr-primary-a30: #85cfa7;
+$clr-primary-a40: #97d6b3;
+$clr-primary-a50: #a9ddc0;
 
-/** Dark theme surface colors */
+/** Dark Theme accent colors */
+$clr-accent-a0: #4842b9;
+$clr-accent-a10: #5657c2;
+$clr-accent-a20: #666aca;
+$clr-accent-a30: #777dd2;
+$clr-accent-a40: #8890d9;
+$clr-accent-a50: #9ba2e0;
+
+/** Dark Theme surface colors */
 $clr-surface-a0: #121212;
-$clr-surface-a10: #282828;
-$clr-surface-a20: #3f3f3f;
-$clr-surface-a30: #575757;
-$clr-surface-a40: #717171;
-$clr-surface-a50: #8b8b8b;
+$clr-surface-a10: #252525;
+$clr-surface-a20: #393939;
+$clr-surface-a30: #4f4f4f;
+$clr-surface-a40: #666;
+$clr-surface-a50: #7d7d7d;
 
-/** Dark theme tonal surface colors */
-$clr-surface-tonal-a0: #19131d;
-$clr-surface-tonal-a10: #2e2832;
-$clr-surface-tonal-a20: #443f48;
-$clr-surface-tonal-a30: #5c5860;
-$clr-surface-tonal-a40: #757178;
-$clr-surface-tonal-a50: #8f8c92;
+/** Dark Theme tonal surface colors */
+$clr-surface-tonal-a0: #19201c;
+$clr-surface-tonal-a10: #2c332f;
+$clr-surface-tonal-a20: #404643;
+$clr-surface-tonal-a30: #555b58;
+$clr-surface-tonal-a40: #6b706d;
+$clr-surface-tonal-a50: #828784;
+
+
+/** Light Theme primary colors */
+$clr-lght-primary-a0: #42b983;
+$clr-lght-primary-a10: #38a071;
+$clr-lght-primary-a20: #2f8960;
+$clr-lght-primary-a30: #25714f;
+$clr-lght-primary-a40: #1c5b3f;
+$clr-lght-primary-a50: #14462f;
+
+/** Light Theme accent colors */
+$clr-lght-accent-a0: #4842b9;
+$clr-lght-accent-a10: #3d38a0;
+$clr-lght-accent-a20: #332f89;
+$clr-lght-accent-a30: #292571;
+$clr-lght-accent-a40: #1f1c5b;
+$clr-lght-accent-a50: #161446;
+
+/** Light Theme surface colors */
+$clr-lght-surface-a0: #fff;
+$clr-lght-surface-a10: #f2f2f2;
+$clr-lght-surface-a20: #e4e4e4;
+$clr-lght-surface-a30: #d7d7d7;
+$clr-lght-surface-a40: #cacaca;
+$clr-lght-surface-a50: #bdbdbd;
+
+/** Light Theme tonal surface colors */
+$clr-lght-surface-tonal-a0: #eef8f2;
+$clr-lght-surface-tonal-a10: #e2ebe6;
+$clr-lght-surface-tonal-a20: #d7dfda;
+$clr-lght-surface-tonal-a30: #ccd3ce;
+$clr-lght-surface-tonal-a40: #c1c6c3;
+$clr-lght-surface-tonal-a50: #b5bab7;
+
+/** Success colors */
+$clr-success-a0: #7dff95;
+$clr-success-a10: #9dffac;
+$clr-success-a20: #b8ffc1;
+
+/** Warning colors */
+$clr-warning-a0: #ffbc5e;
+$clr-warning-a10: #ffca83;
+$clr-warning-a20: #ffd8a4;
+
+/** Danger colors */
+$clr-danger-a0: #ff8080;
+$clr-danger-a10: #ff9b99;
+$clr-danger-a20: #ffb5b2;
+
+/** Info colors */
+$clr-info-a0: #87d1ff;
+$clr-info-a10: #a1dbff;
+$clr-info-a20: #b9e4ff;
 
 /** Dark theme shadow colors */
 $clr-shadow-a0: rgba(75, 0, 130, 0.2);

@@ -16,14 +16,12 @@
   font-weight: 400;
   margin: 0.8rem auto 6rem;
   text-align: center;
-  color: #2c3e50;
-  background-color: #d3d3d3;
+  color: $clr-light-a0;
+  background-color: $clr-surface-a0;
   max-width: 1200px;
   padding: 0 1.8rem;
 
   color-scheme: light dark;
-  // color: $clr-light-a0;
-  // background-color: $clr-surface-a0;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,6 +43,12 @@ h2 {
   font-weight: bold;
 }
 
+.error {
+  font-weight: bold;
+}
+
+
+
 .route {
   
   h3 {
@@ -53,7 +57,7 @@ h2 {
     text-align: left;
 
     span {
-      color: #007582;
+      color: $clr-accent-a0;
     }
   }
   
