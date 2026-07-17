@@ -66,8 +66,6 @@ const Register = () => {
         },
       );
 
-      console.log("res", res);
-
       const token = res?.data?.token;
       const roles = res?.data?.roles;
       const user = res?.data?.user;
