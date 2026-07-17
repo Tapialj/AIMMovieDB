@@ -11,7 +11,7 @@ const ActorList = () => {
   const navigate = useNavigate();
 
   const onClick = (id) => {
-    navigate(`/actor-details/${id}`);
+    navigate(`/actors/${id}`);
   };
 
   return (

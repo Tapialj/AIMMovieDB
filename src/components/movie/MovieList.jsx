@@ -11,7 +11,7 @@ const MovieList = () => {
   const navigate = useNavigate();
 
   const onClick = (id) => {
-    navigate(`/movie-details/${id}`);
+    navigate(`/movies/${id}`);
   };
 
   return (

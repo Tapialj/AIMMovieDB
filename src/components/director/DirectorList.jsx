@@ -11,7 +11,7 @@ const DirectorList = () => {
   const navigate = useNavigate();
 
   const onClick = (id) => {
-    navigate(`/director-details/${id}`);
+    navigate(`/directors/${id}`);
   };
 
   return (

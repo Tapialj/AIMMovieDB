@@ -14,7 +14,7 @@ const ActorDetails = () => {
   const navigate = useNavigate();
   
   const onEditActorClick = () => {
-    navigate(`/edit-actor/${id}`);
+    navigate(`/actors/edit/${id}`);
   };
 
   return (

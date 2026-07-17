@@ -14,7 +14,7 @@ const Directed = ({ directedMovies }) => {
           directedMovies.map((movie) => {
             return (
               <div key={movie.id} className="movie">
-                <Link to={`/movie-details/${movie.id}`}>
+                <Link to={`/movies/${movie.id}`}>
                   <ListItem>
                     {movie.title}
                   </ListItem>
