@@ -98,55 +98,53 @@ const Login = () => {
   };
 
   return (
-    <>
-      <main className="login">
-        <p ref={errRef} className={error ? "error" : "offscreen"} aria-live="assertive">{error}</p>
-        <form className="form" noValidate>
-          <div className="form-control">
-            <input
-              type="username"
-              id="username"
-              name="username"
-              ref={userRef}
-              autoComplete="off"
-              value={username}
-              placeholder="Enter your username"
-              onChange={onChange}
-              disabled={disable}
-              required
-            />
-          </div>
-          
-          <div className="form-control">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter your password"
-              autoComplete="on"
-              onChange={onChange}
-              disabled={disable}
-              required
-            />
-          </div>
+    <main className="login">
+      <p ref={errRef} className={error ? "error" : "offscreen"} aria-live="assertive">{error}</p>
+      <form className="form" noValidate>
+        <div className="form-control">
+          <input
+            type="username"
+            id="username"
+            name="username"
+            ref={userRef}
+            autoComplete="off"
+            value={username}
+            placeholder="Enter your username"
+            onChange={onChange}
+            disabled={disable}
+            required
+          />
+        </div>
+        
+        <div className="form-control">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Enter your password"
+            autoComplete="on"
+            onChange={onChange}
+            disabled={disable}
+            required
+          />
+        </div>
 
-          <div className="form-control">
-            <Button
-              title="Submit"
-              onClick={onSubmit}
-              disabled={disable}
-            />
-          </div>
-        </form>
-        <section>
-          Need an account?<br />
-          <span className="line">
-            <Button title="Register" onClick={toRegister} />
-          </span>
-        </section>
-      </main>
-    </>
+        <div className="form-control">
+          <Button
+            title="Submit"
+            onClick={onSubmit}
+            disabled={disable}
+          />
+        </div>
+      </form>
+      <section>
+        Need an account?<br />
+        <span className="line">
+          <Button title="Register" onClick={toRegister} />
+        </span>
+      </section>
+    </main>
   );
 
 };
