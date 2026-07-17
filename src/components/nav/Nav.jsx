@@ -1,13 +1,14 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
-import axios from "/api/axios";
 import { useAuth } from "/context/AuthProvider";
+import useLogout from "/hooks/useLogout";
 
 import Button from "/components/Button";
 
 
 const Nav = () => {
-  const { auth, setAuth } = useAuth();
+  const { auth } = useAuth();
+  const logout = useLogout();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,20 +16,10 @@ const Nav = () => {
     navigate(link);
   };
 
-  const logout = async (e) => {
+  const onLogout = async (e) => {
     e.preventDefault();
-    
-    await axios.get(
-      "api/logout",
-      {
-        headers: {
-          Authorization: `Bearer ${auth?.token}`,
-          "Content-type": "application/json",
-        },
-        withCredentials: true,
-      },
-    );
-    setAuth({});
+
+    await logout();
     navigate(location.pathname);
   };
 
@@ -50,7 +41,7 @@ const Nav = () => {
           auth?.user ?
             <span className="logout">
               <h2>{auth.user.username}</h2>
-              <Button title="Logout" onClick={logout} />
+              <Button title="Logout" onClick={onLogout} />
             </span> :
             <span className="login-register">
               <Button title="Login" onClick={() => onClick("/login")} />
