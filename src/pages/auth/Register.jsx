@@ -25,6 +25,8 @@ const Register = () => {
   const [matchFocus, setMatchFocus] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [disable, setDisable] = useState(false);
+  const [adminToken, setAdminToken] = useState(null);
+  const [adminTokenVisible, setAdminTokenVisible] = useState(false);
   const userRef = useRef();
   const errRef = useRef();
   const { setAuth } = useAuth();
@@ -51,6 +53,12 @@ const Register = () => {
 
   const toLogin = () => {
     navigate("/login");
+  };
+
+  const onAdminToken = (e) => {
+    e.preventDefault();
+
+    setAdminTokenVisible(!adminTokenVisible);
   };
 
   const register = async (userData) => {
@@ -90,7 +98,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     setDisable(true);
-    // if button enabled with JS hack
+    
     const v1 = USER_REGEX.test(user);
     const v2 = PWD_REGEX.test(pwd);
 
@@ -102,121 +110,146 @@ const Register = () => {
     const userRequest = {
       username: user,
       password: pwd,
+      adminToken: adminToken,
     };
 
     register(userRequest);
   };
 
   return (
-    <>
-      <main className="register">
-        <p ref={errRef} className={errMsg ? "error" : "offscreen"} aria-live="assertive">{errMsg}</p>
-        <h1>Register</h1>
-        <form className="form" noValidate>
-          <div className="form-control">
-            <label htmlFor="username">
-              Username:
-              <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-              <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
-            </label>
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
-              required
-              aria-invalid={validName ? "false" : "true"}
-              aria-describedby="uidnote"
-              onFocus={() => setUserFocus(true)}
-              onBlur={() => setUserFocus(false)}
-            />
-            <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
-              <FontAwesomeIcon icon={faInfoCircle} />
-              4 to 24 characters.
-              Must begin with a letter.
-              Letters, numbers, underscores, hyphens allowed.
-            </p>
-          </div>
-
-
-          <div className="form-control">
-            <label htmlFor="password">
-              Password:
-              <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
-              <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
-            </label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
-              required
-              aria-invalid={validPwd ? "false" : "true"}
-              aria-describedby="pwdnote"
-              onFocus={() => setPwdFocus(true)}
-              onBlur={() => setPwdFocus(false)}
-            />
-            <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-              <FontAwesomeIcon icon={faInfoCircle} />
-              8 to 24 characters. 
-              Must include uppercase and lowercase letters, a number and a special character. 
-              Allowed special characters: 
-              <span aria-label="exclamation mark"> !</span> 
-              <span aria-label="at symbol"> @</span> 
-              <span aria-label="hashtag"> #</span> 
-              <span aria-label="dollar sign"> $</span> 
-              <span aria-label="percent"> %</span>
-            </p>
-          </div>
-
-
-          <div className="form-control">
-            <label htmlFor="confirm_pwd">
-              Confirm Password:
-              <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
-              <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
-            </label>
-            <input
-              type="password"
-              id="confirm_pwd"
-              onChange={(e) => setMatchPwd(e.target.value)}
-              value={matchPwd}
-              required
-              aria-invalid={validMatch ? "false" : "true"}
-              aria-describedby="confirmnote"
-              onFocus={() => setMatchFocus(true)}
-              onBlur={() => setMatchFocus(false)}
-            />
-            <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-              <FontAwesomeIcon icon={faInfoCircle} />
-              Must match the first password input field.
-            </p>
-          </div>
-
-          <Button
-            title="Register"
-            onClick={onSubmit}
-            disabled={
-              disable ||
-              !validName ||
-              !validPwd ||
-              !validMatch ?
-                true :
-                false
-            }
+    <main className="register">
+      <p ref={errRef} className={errMsg ? "error" : "offscreen"} aria-live="assertive">{errMsg}</p>
+      <h1>Register</h1>
+      <form className="form" noValidate>
+        <div className="form-control">
+          <label htmlFor="username">
+            Username:
+            <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+            <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
+          </label>
+          <input
+            type="text"
+            id="username"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setUser(e.target.value)}
+            value={user}
+            disabled={disable}
+            required
+            aria-invalid={validName ? "false" : "true"}
+            aria-describedby="uidnote"
+            onFocus={() => setUserFocus(true)}
+            onBlur={() => setUserFocus(false)}
           />
-        </form>
+          <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
+            <FontAwesomeIcon icon={faInfoCircle} />
+            4 to 24 characters.
+            Must begin with a letter.
+            Letters, numbers, underscores, hyphens allowed.
+          </p>
+        </div>
 
-        <section>
-          Already registered?
-          <span className="line">
-            <Button title="Sign In" onClick={toLogin} />
-          </span>
-        </section>
-      </main>
-    </>
+
+        <div className="form-control">
+          <label htmlFor="password">
+            Password:
+            <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
+            <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
+          </label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPwd(e.target.value)}
+            value={pwd}
+            disabled={disable}
+            required
+            aria-invalid={validPwd ? "false" : "true"}
+            aria-describedby="pwdnote"
+            onFocus={() => setPwdFocus(true)}
+            onBlur={() => setPwdFocus(false)}
+          />
+          <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+            <FontAwesomeIcon icon={faInfoCircle} />
+            8 to 24 characters. 
+            Must include uppercase and lowercase letters, a number and a special character. 
+            Allowed special characters: 
+            <span aria-label="exclamation mark"> !</span> 
+            <span aria-label="at symbol"> @</span> 
+            <span aria-label="hashtag"> #</span> 
+            <span aria-label="dollar sign"> $</span> 
+            <span aria-label="percent"> %</span>
+          </p>
+        </div>
+
+
+        <div className="form-control">
+          <label htmlFor="confirm-pwd">
+            Confirm Password:
+            <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
+            <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
+          </label>
+          <input
+            type="password"
+            id="confirm-pwd"
+            onChange={(e) => setMatchPwd(e.target.value)}
+            value={matchPwd}
+            disabled={disable}
+            required
+            aria-invalid={validMatch ? "false" : "true"}
+            aria-describedby="confirmnote"
+            onFocus={() => setMatchFocus(true)}
+            onBlur={() => setMatchFocus(false)}
+          />
+          <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+            <FontAwesomeIcon icon={faInfoCircle} />
+            Must match the first password input field.
+          </p>
+        </div>
+
+        <div className="admin-token">
+          {
+            !adminTokenVisible ?
+              <sub className="sub" onClick={onAdminToken}>Have an admin token?</sub> :
+              <div className="admin-form form-control">
+                <label htmlFor="admin-token">Admin Token:</label>
+                <input
+                  type="password"
+                  id="admin-token"
+                  onChange={(e) => setAdminToken(e.target.value)}
+                  value={adminToken}
+                  disabled={disable}
+                  required
+                  aria-describedby="admintoken"
+                />
+                <sub className="sub">
+                  If you have an admin token, user will be created with admin privaleges.
+                  <span onClick={onAdminToken}>Click here to hide</span>
+                </sub>
+              </div>
+          }
+        </div>
+
+        <Button
+          title="Register"
+          onClick={onSubmit}
+          disabled={
+            disable ||
+            !validName ||
+            !validPwd ||
+            !validMatch ?
+              true :
+              false
+          }
+        />
+      </form>
+
+      <section>
+        Already registered?
+        <span className="line">
+          <Button title="Sign In" onClick={toLogin} />
+        </span>
+      </section>
+    </main>
   );
 };
 
