@@ -1,9 +1,10 @@
 
 
 const Trailer = ({ trailer }) => {
-  const reg = 
-    /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=([a-zA-Z0-9_]+)|youtu\.be\/([a-zA-Z\d_]+))(?:&.*)?$/gmi;
-  // const reg = new RegExp(".*?=s*(.*)");
+  // Testing regex
+  // const reg = 
+  //   /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=([a-zA-Z0-9_]+)|youtu\.be\/([a-zA-Z\d_]+))(?:&.*)?$/gmi;
+  const reg = new RegExp(".*?=s*(.*)");
   const split = reg.exec(trailer);
   const videoEmbed = `https://www.youtube.com/embed/${split[1]}`;
   
