@@ -10,7 +10,7 @@ const NotFound = () => {
     <article className="not-found">
       <h1>404</h1>
       <p>Page not found</p>
-      <Button title="Go Back" onClick={navigate(-1)} />
+      <Button title="Go Back" onClick={() => navigate(-1)} />
     </article>
   );
 };

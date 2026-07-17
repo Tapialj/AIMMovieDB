@@ -19,10 +19,10 @@ import AddMovie from "/pages/movies/AddMovie";
 import EditMovie from "/pages/movies/EditMovie";
 import MovieDetails from "/pages/movies/MovieDetails";
 import Movies from "/pages/movies/Movies";
-import NotFound from "/pages/NotFound";
-import Unauthorized from "/pages/Unauthorized";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import NotFound from "./pages/error/NotFound";
+import Unauthorized from "./pages/error/Unauthorized";
 import "./scss/main.scss";
 
 
