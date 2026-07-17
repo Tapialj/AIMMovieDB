@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import useAxiosPrivateDelete from "/hooks/useAxiosPrivateDelete";
@@ -85,7 +85,7 @@ const DirectorForm = ({
         lastName: lastName,
       };
 
-      if(location.pathname.includes("directors/new") || location.pathname.includes("movies/new")) {
+      if(location.pathname.includes("directors/new") || location.pathname.includes("movies/")) {
         const res = await axiosPrivatePost(directorApi, directorObject);
         savedDirector = res?.data;
       }
@@ -127,6 +127,10 @@ const DirectorForm = ({
       }
     }
   };
+
+  useEffect(() => {
+    firstRef.current.focus();
+  }, []);
 
   return (
     <>

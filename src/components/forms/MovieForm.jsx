@@ -27,8 +27,16 @@ const MovieForm = ({
   movieDirectors = [],
   movieActors = [],
 }) => {
-  const { data: actors, loading: actorsLoad } = useFetch("/api/actors");
-  const { data: directors, loading: directorsLoad } = useFetch("/api/directors");
+  const {
+    data: actors,
+    loading: actorsLoad,
+    setData: setActors,
+  } = useFetch("/api/actors");
+  const {
+    data: directors,
+    loading: directorsLoad,
+    setData: setDirectors,
+  } = useFetch("/api/directors");
   const { data: genres, loading: genresLoad } = useFetch("/api/genres");
   const { data: ratings, loading: ratingsLoad } = useFetch("/api/ratings");
   const [title, setTitle] = useState(movie ? movie.title : "");
@@ -106,6 +114,7 @@ const MovieForm = ({
     e.preventDefault();
     setDirectorModalOpen(!directorModalOpen);
   };
+  
   const onActorModal = (e) => {
     e.preventDefault();
     setActorModalOpen(!actorModalOpen);
@@ -125,13 +134,13 @@ const MovieForm = ({
 
   const onSaveDirector = (savedDirector) => {
     setSelectedDirectors([ ...selectedDirectors, savedDirector]);
-    directors.push(savedDirector);
+    setDirectors([ ... directors, savedDirector]);
     setDirectorModalOpen(false);
   };
 
   const onSaveActor = (savedActor) => {
     setSelectedActors([ ...selectedActors, savedActor]);
-    actors.push(savedActor);
+    setActors([ ... actors, savedActor]);
     setActorModalOpen(false);
   };
 
@@ -191,7 +200,7 @@ const MovieForm = ({
         directors: selectedDirectors,
         actors: selectedActors,
       };
-      console.log("movie", movieObject);
+      
       if(location.pathname.includes("movies/new")) {
         await axiosPrivatePost(movieApi, movieObject);
       }
@@ -308,13 +317,6 @@ const MovieForm = ({
               </div>
 
               <div className="form-control flex">
-                {/* <RadioButtonSection
-                  ref={directorRef}
-                  title="Directors"
-                  options={directors}
-                  checkedOption={selectedDirector.id}
-                  onChange={onChangeDirector} https://www.youtube.com/watch?v=38A__WT3-o0
-                /> */}
                 <CheckboxSection
                   title="Directors"
                   options={directors}
