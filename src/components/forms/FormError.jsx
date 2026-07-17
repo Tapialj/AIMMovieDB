@@ -1,20 +1,23 @@
-const FormError = ({ errors }) => {
+
+
+const FormError = ({ errRef, errors }) => {
+  
   return (
-    <>
-      {
-        (errors.length > 0) &&
-        <div className="error">
-          <label>Please correct the following error(s):</label>
-          <ul>
-            {
-              errors.map((error) => {
-                return <li key={error}>{error}</li>;
-              })
-            }
-          </ul>
-        </div>
-      }
-    </>
+    <div 
+      ref={errRef}
+      className={errors.length > 0 ? "error" : "offscreen"}
+      aria-live="assertive"
+    >
+      <label>Please correct the following error(s):</label>
+      <ul>
+        {
+          errors.length > 0 &&
+            errors.map((error) => {
+              return <li key={error}>{error}</li>;
+            })
+        }
+      </ul>
+    </div>
   );
 };
 
