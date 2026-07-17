@@ -13,7 +13,7 @@ const EditActor = () => {
   const { data: acted, loading: loadingActed } = useFetch(`/api/actors/${id}/movies`);
   
   return (
-    <>
+    <main className="actor-form">
       <h1>Edit Actor</h1>
 
       {
@@ -21,7 +21,7 @@ const EditActor = () => {
           <Loading /> :
           <ActorForm actor={actor} movies={movies} acted={acted} />
       }
-    </>
+    </main>
   );
 };
 

@@ -13,7 +13,7 @@ const EditDirector = () => {
   const { data: directed, loading: loadingDirected } = useFetch(`/api/directors/${id}/movies`);
 
   return (
-    <>
+    <main className="director-form">
       <h1>Edit Director</h1>
 
       {
@@ -21,7 +21,7 @@ const EditDirector = () => {
           <Loading /> :
           <DirectorForm director={director} movies={movies} directed={directed} />
       }
-    </>
+    </main>
   );
 };
 

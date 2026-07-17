@@ -8,7 +8,7 @@ const AddActor = () => {
   const { data: movies, loading: loadingMovies } = useFetch("/api/movies");
 
   return (
-    <>
+    <main className="actor-form">
       <h1>Add Actor</h1>
 
       {
@@ -16,7 +16,7 @@ const AddActor = () => {
           <Loading /> :
           <ActorForm movies={movies} />
       }
-    </>
+    </main>
   );
 };
 
