@@ -6,19 +6,18 @@ const useLogout = () => {
   const { auth, setAuth } = useAuth();
 
   const logout = async () => {
-    setAuth({});
+    
     try {
-      const res = await axios.post(
-        "api/logout",
+      await axios.get(
+        "api/auth/logout",
         {
           headers: {
             Authorization: `Bearer ${auth?.token}`,
-            "Content-type": "application/json",
           },
           withCredentials: true,
         },
       );
-      console.log("res", res);
+      
       setAuth({});
     }
     catch(e) {
