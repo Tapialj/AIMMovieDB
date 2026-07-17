@@ -87,12 +87,20 @@
     }
   }
   
-  .director {
+  .directors {
     align-self: flex-start;
-    text-align: left;
 
-    .item {
-      background-color: $clr-accent-a0;
+    > h2 {
+      margin-bottom: 0.6rem;
+    }
+    
+    .director {
+      text-align: left;
+      margin: 0.4rem auto;
+  
+      .item {
+        background-color: $clr-accent-a0;
+      }
     }
   }
   
