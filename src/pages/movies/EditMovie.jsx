@@ -9,6 +9,7 @@ import Loading from "/components/Loading";
 const EditMovie = () => {
   const { id } = useParams();
   const { data: movie, loading: movieLoad } = useFetch(`/api/movies/${id}`);
+  const { data: directors, loading: directorsLoad } = useFetch(`/api/movies/${id}/directors`);
   const { data: actors, loading: actorsLoad } = useFetch(`/api/movies/${id}/actors`);
 
   return (
@@ -16,9 +17,9 @@ const EditMovie = () => {
       <h1>Edit Movie</h1>
 
       {
-        (movieLoad || actorsLoad) ?
+        (movieLoad || directorsLoad || actorsLoad) ?
           <Loading /> :
-          <MovieForm movie={movie} movieActors={actors} />
+          <MovieForm movie={movie} movieDirectors={directors} movieActors={actors} />
       }
     </>
   );
