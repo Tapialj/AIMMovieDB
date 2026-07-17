@@ -5,12 +5,19 @@ const RadioButtonSection = ({ ref, title, options, checkedOption, onChange }) =>
 
   return (
     <>
-      <fieldset className="form-control flex" onChange={onChange}>
+      <fieldset className="form-control radio-container flex" onChange={onChange}>
         <label htmlFor="option">{title}</label>
         <div className="grid check-container">
           {
             options.map((option) => {
-              const display = `${option.firstName} ${option.lastName}`;
+              let display;
+
+              if(Object.hasOwn(option, "firstName") && Object.hasOwn(option, "lastName")) {
+                display = `${option.firstName} ${option.lastName}`;
+              }
+              else if(Object.hasOwn(option, "rating")) {
+                display = option.rating;
+              }
 
               return (
                 <RadioButton
