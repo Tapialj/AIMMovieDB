@@ -43,6 +43,10 @@ h2 {
   font-weight: bold;
 }
 
+sub.sub {
+  font-size: 0.5rem;  
+}
+
 .error {
   font-weight: bold;
   font-size: 0.8rem;
@@ -55,8 +59,6 @@ h2 {
     color: $clr-warning-a0;
   }
 }
-
-
 
 .route {
   
