@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { useAuth } from "/context/AuthProvider";
 import useLogout from "/hooks/useLogout";
@@ -10,7 +10,6 @@ const Nav = () => {
   const { auth } = useAuth();
   const logout = useLogout();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const onClick = (link) => {
     navigate(link);
@@ -20,7 +19,7 @@ const Nav = () => {
     e.preventDefault();
 
     await logout();
-    navigate(location.pathname);
+    window.location.reload();
   };
 
   return (
@@ -36,7 +35,7 @@ const Nav = () => {
         <span>{" | "}</span>
         <NavLink to="/actors">Actors</NavLink>
       </nav>
-      <section>
+      <section className="authentication">
         {
           auth?.user ?
             <span className="logout">
