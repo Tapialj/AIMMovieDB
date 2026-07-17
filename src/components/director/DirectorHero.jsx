@@ -22,7 +22,7 @@ const DirectorHero = ({ director, onEditDirectorClick }) => {
       <div className="name flex row">
         <h1>{director.firstName} {director.lastName}</h1>
         {
-          (auth?.roles?.includes("USER") || auth?.roles?.includes("ADMIN")) &&
+          auth?.user?.roles?.includes("USER") &&
             <Button title="Edit" onClick={onEditDirectorClick} />
         }
       </div>

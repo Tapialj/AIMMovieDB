@@ -7,7 +7,7 @@ import Button from "/components/Button";
 
 const ActorHero = ({ actor, onEditActorClick }) => {
   const { auth } = useAuth();
-
+  
   return (
     <>
       <div className="route">
@@ -22,7 +22,7 @@ const ActorHero = ({ actor, onEditActorClick }) => {
       <div className="name flex row">
         <h1>{actor.firstName} {actor.lastName}</h1>
         {
-          (auth?.roles?.includes("USER") || auth?.roles?.includes("ADMIN")) &&
+          auth?.user?.roles?.includes("USER") &&
             <Button title="Edit" onClick={onEditActorClick} />
         }
       </div>

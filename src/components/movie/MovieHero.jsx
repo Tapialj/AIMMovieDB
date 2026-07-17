@@ -26,7 +26,7 @@ const MovieHero = ({ movie, onEditMovieClick }) => {
           {movie.title} <span className="subtitle">({moment(movie.releaseDate).format("YYYY")})</span>
         </h1>
         {
-          (auth?.roles?.includes("USER") || auth?.roles?.includes("ADMIN")) &&
+          auth?.user?.roles?.includes("USER") &&
             <Button title="Edit" onClick={onEditMovieClick} />
         }
       </div>

@@ -11,7 +11,7 @@ const Directors = () => {
   const navigate = useNavigate();
 
   const onAddDirectorClick = () => {
-    navigate("/add-director");
+    navigate("/directors/new");
   };
 
   return (
@@ -19,7 +19,7 @@ const Directors = () => {
       <section className="flex row">
         <h1>Directors</h1>
         {
-          (auth?.roles?.includes("USER") || auth?.roles?.includes("ADMIN")) &&
+          auth?.user?.roles?.includes("USER") &&
             <Button title="Add Director" onClick={onAddDirectorClick} />
         }
       </section>
