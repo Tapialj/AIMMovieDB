@@ -35,18 +35,6 @@ const CheckboxSection = ({ title, options, checkedList, onChange }) => {
                   checked={() => isChecked(option.id)}
                   onChange={onChange}
                 />
-                // <div key={option.id} className="checkbox">
-                //   <input
-                //     key={option.id}
-                //     type="checkbox"
-                //     name="option"
-                //     value={option.id}
-                //     defaultChecked={() => isChecked(option.id)}
-                //     // checked={checkedList.includes(option.id) ? true : false} defaultChecked
-                //     onChange={onChange}
-                //   />
-                //   <label htmlFor={option.id}>{display}</label>
-                // </div>
               );
             })
           }
