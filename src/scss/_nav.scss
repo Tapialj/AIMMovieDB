@@ -7,19 +7,41 @@
   
   h1 {
     text-align: left;
-    color: #42b983;
+    color: $clr-primary-a0;
   }
 
   nav {
     font-weight: bold;
     padding: 0 2.5rem;
+
+    a {
+      color: $clr-accent-a40;
+      
+      &.active {
+        color: $clr-primary-a40;
+      }
+    }
   }
 
-  a {
-    color: #2c3e50;
+  .authentication {
+
+    .logout {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 0.5rem 0.8rem;
+      }
+    }
     
-    &.active {
-      color: #42b983;
+    .login-register {
+      display: flex;
+      gap: 0.4rem;
     }
   }
 
@@ -27,4 +49,9 @@
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+.footer {
+  margin: 4rem auto;
+  
 }

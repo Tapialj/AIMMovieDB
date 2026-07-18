@@ -16,14 +16,12 @@
   font-weight: 400;
   margin: 0.8rem auto 6rem;
   text-align: center;
-  color: #2c3e50;
-  background-color: #d3d3d3;
+  color: $clr-light-a0;
+  background-color: $clr-surface-a0;
   max-width: 1200px;
   padding: 0 1.8rem;
 
   color-scheme: light dark;
-  // color: $clr-light-a0;
-  // background-color: $clr-surface-a0;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,6 +43,23 @@ h2 {
   font-weight: bold;
 }
 
+sub.sub {
+  font-size: 0.5rem;  
+}
+
+.error {
+  font-weight: bold;
+  font-size: 0.8rem;
+
+  label {
+    color: $clr-danger-a0;
+  }
+
+  ul {
+    color: $clr-warning-a0;
+  }
+}
+
 .route {
   
   h3 {
@@ -53,7 +68,7 @@ h2 {
     text-align: left;
 
     span {
-      color: #007582;
+      color: $clr-accent-a0;
     }
   }
   

@@ -4,12 +4,11 @@ import { useAuth } from "/context/AuthProvider";
 
 
 const ProtectedRoute = ({ allowedRoles }) => {
-
   const { auth } = useAuth();
   const location = useLocation();
-  
+
   return (
-    auth?.roles?.find((role) => allowedRoles.includes(role))
+    auth?.user?.roles?.find((role) => allowedRoles.includes(role.toLowerCase()))
       ? <Outlet />
       : auth?.user
         ? <Navigate to="/unauthorized" state={{ from: location }} replace />

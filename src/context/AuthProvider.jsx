@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
+import useLocalStorage from "/hooks/useLocalStorage";
+
 
 const AuthContext = createContext(undefined);
 
@@ -16,6 +18,7 @@ export const useAuth = () => {
 const AuthProvider = ({ children }) => {
   
   const [auth, setAuth] = useState(null);
+  const [persist, setPersist] = useLocalStorage("persist", false);
   const [expired, setExpired] = useState();
   
   return (

@@ -10,11 +10,26 @@
 
 }
 
-@media (min-width: 37.5rem) and (max-width: 42rem) {
+@media (max-width: 38rem) {
+
+  main.movie-form,
+  main.director-form,
+  main.actor-form {
+
+    form {
+
+      .form-control.flex {
+
+        .check-container.grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
 
 }
 
-@media (max-width: 37.49rem) {
+@media (max-width: 43.125rem) {
 
   .nav {
 
@@ -36,7 +51,7 @@
           left: 0;
           width: 100%;
           height: 1px;
-          background: #00A38B;
+          background: $clr-light-a20;
         }
       }
     }
@@ -48,9 +63,130 @@
       grid-template-columns: 1fr;
     }
   }
+
+  main.movie-details {
+
+    .cast-crew {
+      
+      &.grid {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+      }
+
+      .directors {
+        
+        .flex {
+          flex-direction: row;
+          flex-wrap: wrap;
+          
+          .director {
+            flex: 1 1 50%;
+          }
+        }
+      }
+
+      .cast {
+        padding: 0;
+        text-align: left;
+        border-top: 2px solid $clr-surface-tonal-a40;
+        border-left: 0;
+        align-self: flex-start;
+
+        > h2 {
+          margin: 0.6rem auto;
+        }
+      }
+
+      .actors.grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: row;
+        grid-template-rows: auto;
+      }
+    }
+  }
+
+  main.director-details,
+  main.actor-details {
+    
+    .movies-section {
+
+      .movies.grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
 }
 
-@media (max-width: 42rem ) {
+@media (max-width: 48.875rem) {
+
+  .nav {
+
+    .authentication {
+      
+      .logout {
+        flex-direction: column;
+      }
+    }
+  }
+
+  main.movie-details {
+
+    .cast-crew {
+      
+      &.grid {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+      }
+
+      .directors {
+        
+        .flex {
+          flex-direction: row;
+          flex-wrap: wrap;
+          
+          .director {
+            flex: 1 1 50%;
+          }
+        }
+      }
+
+      .cast {
+        padding: 0;
+        text-align: left;
+        border-top: 2px solid $clr-surface-tonal-a40;
+        border-left: 0;
+        align-self: flex-start;
+
+        > h2 {
+          margin: 0.6rem auto;
+        }
+      }
+
+      .actors.grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: row;
+        grid-template-rows: auto;
+      }
+    }
+  }
+
+  main.movie-form,
+  main.director-form,
+  main.actor-form {
+
+    form {
+
+      .form-control.flex {
+
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 53.75rem) {
 
   .nav {
 
@@ -58,4 +194,46 @@
       width: 5rem;
     }
   }
+
+  main.director-details,
+  main.actor-details {
+    
+    .movies-section {
+
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  main.director-form,
+  main.actor-form {
+
+    form {
+
+      .form-control {
+
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 61.5rem) {
+
+  main.movie-form {
+
+    form {
+
+      .form-control {
+
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    }
+  }
+
 }

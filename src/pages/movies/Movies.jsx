@@ -11,7 +11,7 @@ const Movies = () => {
   const navigate = useNavigate();
 
   const onAddMovieClick = () => {
-    navigate("/add-movie");
+    navigate("/movies/new");
   };
 
   return (
@@ -19,7 +19,7 @@ const Movies = () => {
       <section className="flex row">
         <h1>Movies</h1>
         {
-          auth?.user?.role?.includes("USER") &&
+          auth?.user?.roles?.includes("USER") &&
             <Button title="Add Movie" onClick={onAddMovieClick} />
         }
       </section>

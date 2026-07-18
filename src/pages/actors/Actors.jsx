@@ -11,7 +11,7 @@ const Actors = () => {
   const navigate = useNavigate();
 
   const onAddActorClick = () => {
-    navigate("/add-actor");
+    navigate("/actors/new");
   };
 
   return (
@@ -19,7 +19,7 @@ const Actors = () => {
       <section className="flex row">
         <h1>Actors</h1>
         {
-          auth?.user?.role?.includes("USER") &&
+          auth?.user?.roles?.includes("USER") &&
             <Button title="Add Actor" onClick={onAddActorClick} />
         }
       </section>

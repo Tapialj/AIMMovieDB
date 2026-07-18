@@ -14,7 +14,7 @@ const DirectorDetails = () => {
   const navigate = useNavigate();
 
   const onEditDirectorClick = () => {
-    navigate(`/edit-director/${id}`);
+    navigate(`/directors/edit/${id}`);
   };
 
   return (

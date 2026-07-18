@@ -16,11 +16,11 @@ const RandomsSection = ({ type }) => {
   const navigate = useNavigate();
 
   const onRandoClick = (randoId) => {
-    navigate(`/${singular.toLowerCase()}-details/${randoId}`);
+    navigate(`/${title.toLowerCase()}/${randoId}`);
   };
 
   const onButtonClick = () => {
-    navigate(`/${singular.toLowerCase()}-details/${randomType.id}`);
+    navigate(`/${title.toLowerCase()}/${randomType.id}`);
   };
 
   return (

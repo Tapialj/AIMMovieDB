@@ -11,12 +11,12 @@
       align-self: flex-start;
       padding: 0.3rem 0.85rem;
       margin: 0.65rem 0;
-      background: #009F99;
-      color: #000;
+      background: $clr-accent-a0;
+      color: $clr-light-a0;
 
       &:hover,
       &:focus {
-        background: color.scale(#009F99, $lightness: -10%);
+        background: color.scale($clr-accent-a0, $lightness: -10%);
       }
     }
   }
@@ -29,7 +29,7 @@
 
   h2 {
     text-align: left;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $clr-surface-tonal-a40;
     margin-bottom: 0.65rem;
   }
 }
