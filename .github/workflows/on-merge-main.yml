@@ -1,0 +1,30 @@
+name: On Merge with main
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  version_and_build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+    - name: checkout
+      uses: actions/checkout@v7
+      with:
+        fetch-depth: 0
+    - name: Generate semantic version based on git history
+      id: version
+      uses: paulhatch/semantic-version@v6.0.2
+      with:
+        tag_prefix: "v"
+    - uses: fregante/setup-git-user@v2
+    - name: Git Tag New Version
+      run: |
+        git tag -a v${{ steps.version.outputs.version }} -m"v${{ steps.version.outputs.version }}"
+        git push origin tag v${{ steps.version.outputs.version }}
+    - uses: ncipollo/release-action@v1.21.0
+      with:
+        tag: v${{ steps.version.outputs.version }}
